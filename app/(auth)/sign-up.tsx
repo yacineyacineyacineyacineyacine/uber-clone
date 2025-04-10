@@ -58,15 +58,24 @@ const SignUp = () => {
     try {
       // Use the code the user provided to attempt verification
       const signUpAttempt = await signUp.attemptEmailAddressVerification({
-        code,
+        code: verification.code,
       });
 
       // If verification was completed, set the session to active
       // and redirect the user
       if (signUpAttempt.status === "complete") {
+
+        // Create a dtabase user
+
         await setActive({ session: signUpAttempt.createdSessionId });
-        router.replace("/");
+        setVerification({ ...verification, state: "success" });
+        
       } else {
+        setVerification({
+          ...verification,
+          error: "Verification failed",
+          state: "failed",
+        });
         // If the status is not complete, check why. User may need to
         // complete further steps.
         console.error(JSON.stringify(signUpAttempt, null, 2));
@@ -74,6 +83,11 @@ const SignUp = () => {
     } catch (err) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
+      setVerification({
+        ...verification,
+        error: err.errors[0].longMessage,
+        state: "failed",
+      });
       console.error(JSON.stringify(err, null, 2));
     }
   };
