@@ -1,13 +1,35 @@
-import { Stack } from "expo-router";
+import { icons } from "@/constants";
+import { Tabs } from "expo-router";
+import { View, Image } from "react-native";
 
-export default function Layout() {
+const TabIcon = ({ focused, source }) => (
+  <View>
+    <View className="bg-black">
+      <Image source={source} />
+    </View>
+  </View>
+);
+
+const Layout = () => {
   return (
-    <Stack screenOption={{ headerShown: false }}>
-      <Stack.Screen name="home" options={{ headerShown: false }} />
-      <Stack.Screen name="chat" options={{ headerShown: false }} />
-      <Stack.Screen name="rides" options={{ headerShown: false }} />
-      <Stack.Screen name="profile" options={{ headerShown: false }} />
-      {/* <Stack.Screen name="+not-found" /> */}
-    </Stack>
+    <Tabs
+      initialRouteName="home"
+      screenOptions={{
+        tabBarActiveTintColor: "white",
+      }}
+    >
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: "Home",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} source={icons.home} />
+          ),
+        }}
+      />
+    </Tabs>
   );
-}
+};
+
+export default Layout;
