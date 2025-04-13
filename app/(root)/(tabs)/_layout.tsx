@@ -10,7 +10,7 @@ const TabIcon = ({
   focused: boolean;
 }) => (
   <View
-    className={`flex flex-row justify-center items-center rouded-full ${focused ? "gb-general-300" : ""}`}
+    className={`flex justify-center items-center rouded-full ${focused ? "gb-general-300" : ""}`}
   >
     <View
       className={`rounded-full w-12 h-12 items-center justify-center ${focused ? "bg-general-400" : ""}`}
@@ -36,11 +36,11 @@ const Layout = () => {
         tabBarStyle: {
           backgroundColor: "#333333",
           borderRadius: 50,
-          paddingBottom: 0,
+          paddingBottom: 20,
           overflow: "hidden",
           marginHorizental: 20,
-          height: 68,
-          display: "flex",
+          height: 78,
+          flex: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "row",
@@ -53,7 +53,7 @@ const Layout = () => {
         options={{
           title: "Home",
           headerShown: false,
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ focused }: { focused: boolean }) => (
             <TabIcon focused={focused} source={icons.home} />
           ),
         }}
