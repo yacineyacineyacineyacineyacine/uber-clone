@@ -6,7 +6,7 @@ export async function POST(request: Request) {
 
     const { name, email, clerkId } = await request.json();
 
-    if (!name || !email || clerkId) {
+    if (!name || !email || !clerkId) {
       return Response.json(
         { error: "Missing required filed" },
         { status: 400 },
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       status: 201,
     });
   } catch (error) {
-    console.log(error);
+    console.log("error: ", error);
     return Response.json({ error: error }, { status: 500 });
   }
 }
