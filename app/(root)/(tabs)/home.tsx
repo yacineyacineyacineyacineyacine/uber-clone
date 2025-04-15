@@ -14,6 +14,7 @@ import RideCard from "@/components/RideCard";
 import { useClerk } from "@clerk/clerk-expo";
 import * as Linking from "expo-linking";
 import GoogleTextInput from "@/components/GoogleTextInput";
+import Map from "@/components/Map";
 
 export default function Home() {
   const { user } = useUser();
@@ -90,6 +91,7 @@ export default function Home() {
                 Your Current Location
               </Text>
               <View className="flex flex-row items-center bg-trasparent h-[300px]">
+                <Map/>
 
               </View>
             </>
