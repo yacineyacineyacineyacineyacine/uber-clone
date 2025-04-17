@@ -20,7 +20,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config":{
+        "googleMaps":{
+          "apiKey": "AIzaSyBd3tCMVGgtxCW3dty_JLYUU_ZAMLsrUOg"
+        }
       }
+
     },
     "web": {
       "bundler": "metro",
