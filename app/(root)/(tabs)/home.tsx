@@ -91,10 +91,12 @@ export default function Home() {
                 Your Current Location
               </Text>
               <View className="flex flex-row items-center bg-trasparent h-[300px]">
-                <Map/>
-
+                <Map />
               </View>
             </>
+            <Text className="text-xl font-JakartaBold mt-5 mb-3">
+              Recent rides
+            </Text>
           </>
 
           // GoogleTextIput
