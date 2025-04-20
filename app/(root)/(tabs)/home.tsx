@@ -15,8 +15,11 @@ import { useClerk } from "@clerk/clerk-expo";
 import * as Linking from "expo-linking";
 import GoogleTextInput from "@/components/GoogleTextInput";
 import Map from "@/components/Map";
+import { useLocationStore } from "@/store";
 
 export default function Home() {
+
+  const { setUserLocation, setDestinationLocation  } = useLocationStore();
   const { user } = useUser();
   const isLoading = false;
   const { signOut } = useClerk();
