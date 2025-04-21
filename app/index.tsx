@@ -1,4 +1,6 @@
 import "../global.css";
+import "react-native-get-random-values";
+
 import { Redirect } from "expo-router";
 import { useAuth } from "@clerk/clerk-expo";
 
